@@ -42,7 +42,9 @@ RUN cp /etc/apache2/server.key /etc/apache2/ssl.key/vhost-example.key
 
 RUN cat /etc/apache2/vhosts.d/vhost-ssl.template | sed --regexp-extended "s/DocumentRoot (.*)$/DocumentRoot \"\/srv\/www\/htdocs\/owncloud\"/g" - > /etc/apache2/conf.d/owncloud-ssl.conf
 
-# start Apache
-CMD /usr/sbin/start_apache2 -D SYSTEMD -DFOREGROUND -DSSL -k start
+ADD processor/apache2.sh /etc/processor/apache2/run.sh
+RUN chmod 770 /etc/processor
+RUN chmod 775 /etc/processor/apache2/run.sh
 
-#
+# start Apache
+CMD /etc/processor/apache2/run.sh
