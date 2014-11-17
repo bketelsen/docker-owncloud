@@ -5,6 +5,6 @@ This image installs ownCloud from the package available on the openSUSE Build Se
 
 This image included support for HTTPS
 
-Run it: **docker run -d -p 80:80 -p 443:443 webdeskltd/owncloud**
+Run it: `docker run -d -p 80:80 -p 443:443 webdeskltd/owncloud`
 
 Then you access http://you-server-here/ or https://you-server-here/
